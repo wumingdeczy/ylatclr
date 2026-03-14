@@ -1,4 +1,4 @@
-/* style.css — 完全与HTML分离，包含所有清新风格与动画 */
+/* style.css — 简约版：保留核心风格，移除非必要样式 */
 /* 全局重置与基调 */
 * {
   margin: 0;
@@ -7,7 +7,6 @@
 }
 
 body {
-  /* 柔和双色渐变背景 + 细密光点纹理，增加呼吸感 */
   background: linear-gradient(145deg, #f0f7f4 0%, #e9f2ef 100%);
   background-image: 
     radial-gradient(circle at 20% 30%, rgba(165, 201, 191, 0.15) 0%, transparent 20%),
@@ -22,7 +21,7 @@ body {
   align-items: center;
 }
 
-/* 主容器 — 半透明白色磨砂卡片效果 */
+/* 主容器 — 保留磨砂卡片效果 */
 .site-wrapper {
   max-width: 1300px;
   width: 100%;
@@ -46,7 +45,7 @@ a {
   transition: all 0.2s ease;
 }
 
-/* ---------- 导航区域 ---------- */
+/* ---------- 导航区域（简化版） ---------- */
 .top-nav {
   display: flex;
   justify-content: space-between;
@@ -109,34 +108,6 @@ a {
   border-bottom-color: #a3cdc3;
   color: #1f4a41;
   transform: translateY(-1px);
-}
-
-/* 问候小标签 */
-.welcome-tag {
-  background: #def1e8;
-  border-radius: 40px;
-  padding: 0.3rem 1.2rem 0.3rem 1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.95rem;
-  color: #2a6255;
-  border: 1px solid #cae1d6;
-  margin-bottom: 2.5rem;
-  transition: background 0.2s;
-}
-
-.welcome-tag:hover {
-  background: #d0e9dd;
-}
-
-.welcome-tag span {
-  background: #91bfb2;
-  color: white;
-  border-radius: 30px;
-  padding: 0.2rem 0.9rem;
-  font-size: 0.85rem;
-  font-weight: 500;
 }
 
 /* 精选标题区域 */
@@ -295,14 +266,6 @@ a {
   margin-top: auto;
 }
 
-.read-time {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  color: #6d9b8e;
-}
-
 .read-more {
   background: transparent;
   border: 1.5px solid #b6dace;
@@ -321,68 +284,6 @@ a {
   color: #12493e;
   padding-right: 1.8rem;
   padding-left: 1.8rem;
-}
-
-/* 今日推荐语模块 */
-.today-motto {
-  background: #e3f1eb;
-  border-radius: 90px 30px 30px 90px;
-  padding: 1.2rem 2rem 1.2rem 2.2rem;
-  margin: 3rem 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  border: 1px solid #bdd9cf;
-  transition: background 0.3s, box-shadow 0.2s;
-}
-
-.today-motto:hover {
-  background: #daefe6;
-  box-shadow: 0 8px 18px rgba(125, 170, 150, 0.2);
-}
-
-.motto-text {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 1.2rem;
-  color: #235e51;
-}
-
-.motto-text .quote {
-  font-size: 2.5rem;
-  opacity: 0.5;
-  margin-right: 0.25rem;
-  font-family: serif;
-}
-
-.pill-button {
-  background: white;
-  border: none;
-  padding: 0.7rem 1.8rem;
-  border-radius: 60px;
-  font-size: 1rem;
-  color: #236458;
-  font-weight: 520;
-  box-shadow: 0 4px 10px rgba(102, 151, 132, 0.2);
-  border: 1px solid #a7d2c2;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-}
-
-.pill-button:hover {
-  background: #ecf9f2;
-  box-shadow: 0 10px 18px -8px #679f8e;
-  transform: scale(1.02);
-}
-
-.pill-button:active {
-  transform: scale(0.98);
 }
 
 /* 页脚 */
@@ -422,8 +323,5 @@ a {
   .nav-links {
     gap: 1.5rem;
     flex-wrap: wrap;
-  }
-  .today-motto {
-    border-radius: 40px 20px 20px 40px;
   }
 }

@@ -4,19 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>氧分 · 文章走廊</title>
-  <!-- 分离的CSS文件 (style.css) 通过link引入 -->
   <link rel="stylesheet" href="style.css">
-  <!-- 预先连接字体服务，提升加载体验 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- 使用Inter字体，清爽现代 -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- 整个内容被一个柔软的主容器包裹，增加视觉层次 -->
   <div class="site-wrapper">
-
-    <!-- 页眉导航：人性化的微交互+清爽留白 -->
+    <!-- 简化导航：仅保留核心入口 -->
     <header class="top-nav">
       <div class="logo-area">
         <div class="logo-icon" role="img" aria-label="绿叶logo">🌱</div>
@@ -27,25 +22,17 @@
         <a href="#">发现</a>
         <a href="#">话题</a>
         <a href="#">关于</a>
-        <a href="#">写点东西</a>
       </nav>
     </header>
 
-    <!-- 人性化小模块：根据时间展示问候语 -->
-    <div class="welcome-tag">
-      <span>📖 午后</span>
-      适合读一篇治愈的文字
-    </div>
-
-    <!-- 主内容区域：最新精选文章 -->
+    <!-- 核心文章标题区 -->
     <section class="featured-title">
-      <h2>今天的新鲜文章</h2>
+      <h2>本周的新鲜文章</h2>
       <a href="#" class="view-all">浏览全部 <span aria-hidden="true">→</span></a>
     </section>
 
-    <!-- 卡片网格：四个特色卡片 -->
+    <!-- 简化的文章卡片网格 -->
     <div class="card-grid">
-      <!-- 卡片 1 -->
       <article class="article-card">
         <div class="card-illustration" aria-hidden="true">🍃</div>
         <div class="card-meta">
@@ -56,100 +43,34 @@
         <h3>在阳台种一棵薄荷的治愈力</h3>
         <p>每天清晨摘两片泡水，看叶片在杯中舒展，压力也慢慢溶解了……</p>
         <div class="card-footer">
-          <span class="read-time">⏱️ 4分钟</span>
           <a href="#" class="read-more" aria-label="阅读全文">阅读</a>
         </div>
       </article>
-
-      <!-- 卡片 2 --> 
+      
+      <!-- 可按需添加更多文章卡片 -->
       <article class="article-card">
-        <div class="card-illustration" aria-hidden="true">📘</div>
+        <div class="card-illustration" aria-hidden="true">📝</div>
         <div class="card-meta">
-          <span class="author-avatar">M</span>
-          <span class="date">5月11日</span>
-          <span class="tag">读书笔记</span>
-        </div>
-        <h3>重新理解“慢”的艺术</h3>
-        <p>一本薄薄的小书，让我学会了如何专注地做一件小事，比如好好吃饭。</p>
-        <div class="card-footer">
-          <span class="read-time">⏱️ 6分钟</span>
-          <a href="#" class="read-more">阅读</a>
-        </div>
-      </article>
-
-      <!-- 卡片 3 -->
-      <article class="article-card">
-        <div class="card-illustration" aria-hidden="true">☕</div>
-        <div class="card-meta">
-          <span class="author-avatar">C</span>
+          <span class="author-avatar" aria-label="作者头像">M</span>
           <span class="date">5月10日</span>
-          <span class="tag">城市散步</span>
+          <span class="tag">随笔</span>
         </div>
-        <h3>老街拐角的手冲咖啡馆</h3>
-        <p>店主说：“每一杯咖啡都像一篇文章，等待懂得品味的人。”</p>
+        <h3>独处时的思考</h3>
+        <p>安静的时光里，总能听见内心最真实的声音，找到前行的方向……</p>
         <div class="card-footer">
-          <span class="read-time">⏱️ 5分钟</span>
-          <a href="#" class="read-more">阅读</a>
-        </div>
-      </article>
-
-      <!-- 卡片 4 -->
-      <article class="article-card">
-        <div class="card-illustration" aria-hidden="true">🎧</div>
-        <div class="card-meta">
-          <span class="author-avatar">Y</span>
-          <span class="date">5月9日</span>
-          <span class="tag">音乐故事</span>
-        </div>
-        <h3>那些陪伴过你的耳机</h3>
-        <p>从有线到无线，不变的是副歌响起时，心里微微的颤动。</p>
-        <div class="card-footer">
-          <span class="read-time">⏱️ 3分钟</span>
-          <a href="#" class="read-more">阅读</a>
+          <a href="#" class="read-more" aria-label="阅读全文">阅读</a>
         </div>
       </article>
     </div>
 
-    <!-- 人性化推荐语 + 微交互按钮 -->
-    <div class="today-motto">
-      <div class="motto-text">
-        <span class="quote" aria-hidden="true">“</span>
-        把生活过成一首温柔的诗
-        <span class="quote" aria-hidden="true">”</span>
-      </div>
-      <button class="pill-button" aria-label="随机推荐一篇好文">🌿 随机推荐</button>
-    </div>
-
-    <!-- 简约页脚 -->
+    <!-- 简化页脚 -->
     <footer class="site-footer">
       <p>© 氧气文章 · 让阅读有呼吸感</p>
       <p>
         <a href="#">关于</a> · 
-        <a href="#">订阅</a> · 
-        <a href="#">RSS</a>
+        <a href="#">订阅</a>
       </p>
     </footer>
   </div>
-
-  <!-- 如果希望增加一个简单的动态问候脚本，可以放在这里（不影响CSS分离） -->
-  <script>
-    (function() {
-      // 人性化细节：根据本地时间更新欢迎语
-      const hour = new Date().getHours();
-      let greet = '';
-      if (hour < 5) greet = '深夜';
-      else if (hour < 11) greet = '早晨';
-      else if (hour < 14) greet = '午后';
-      else if (hour < 18) greet = '下午';
-      else if (hour < 22) greet = '傍晚';
-      else greet = '夜晚';
-
-      const tag = document.querySelector('.welcome-tag span');
-      if (tag) {
-        // 保留图标，替换文字
-        tag.innerHTML = `📖 ${greet}`;
-      }
-    })();
-  </script>
 </body>
 </html>

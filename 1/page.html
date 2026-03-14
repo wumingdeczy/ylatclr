@@ -1,157 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>氧分 · 翻页阅读</title>
-  <!-- 同级的page.css -->
+  <title>氧分 · 阅读</title>
   <link rel="stylesheet" href="page.css">
-  <!-- 字体与主页一致，保持清新感 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="page-wrapper">
-
-    <!-- 导航栏：保持与主页相似但更简化，并带返回链接 -->
+    <!-- 简化导航：仅保留logo和返回主页 -->
     <header class="page-nav">
       <div class="logo-area">
         <div class="logo-icon" role="img" aria-label="绿叶logo">🌱</div>
-        <span class="logo-text">氧气文章 · 阅读室</span>
+        <span class="logo-text">氧气文章</span>
       </div>
       <nav class="nav-links">
         <a href="../index.html">← 返回主页</a>
-        <a href="#">目录</a>
-        <a href="#">背景</a>
       </nav>
     </header>
 
-    <!-- 文章卡片主容器 (类似于主页的卡片风格，但更适于阅读) -->
+    <!-- 核心阅读区域 -->
     <main class="reading-card">
-      
-      <!-- 文章元信息：标题、作者、发布时间等 (人性化细节) -->
+      <!-- 简化文章头部：仅保留标题 -->
       <div class="article-header">
         <h1 id="article-title">月光落在左手上</h1>
-        <div class="byline">
-          <span class="author">作者：余秀华</span>
-          <span class="divider">·</span>
-          <span class="publish-date">2024年5月 续篇</span>
-          <span class="divider">·</span>
-          <span class="read-estimate">预计阅读 8 分钟</span>
-        </div>
-        <!-- 一个小点缀，与主页的welcome-tag呼应 -->
-        <div class="reading-tip">
-          <span>📘</span> 安静阅读，让文字在心底发芽
-        </div>
       </div>
 
-      <!-- 文章主体内容：从page.txt动态载入 -->
+      <!-- 文章内容区 -->
       <div class="article-content" id="article-content">
-        <!-- 加载提示（人性化设计：防止白屏焦虑） -->
         <div class="loading-placeholder" id="loadingIndicator">
-          <span>🌱</span> 正在舒展文字，请稍候……
+          <span>🌱</span> 加载中...
         </div>
-        <!-- 实际内容将通过JS注入到这里 -->
       </div>
 
-      <!-- 文章底部交互 (类似主页的卡片footer，增加亲切感) -->
+      <!-- 简化底部：仅保留返回按钮 -->
       <div class="article-footer">
-        <div class="footer-note">
-          <span>❤️ 38</span> · <span>💬 12</span>
-        </div>
         <div class="footer-actions">
-          <button class="pill-button" id="likeButton">标记喜欢</button>
-          <button class="pill-outline" onclick="window.location.href='../index.html'">返回列表</button>
+          <button class="pill-button" onclick="window.location.href='../index.html'">返回</button>
         </div>
       </div>
     </main>
 
-    <!-- 简约底部 (与主页统一) -->
+    <!-- 极简页脚 -->
     <footer class="page-footer">
-      <p>© 氧气文章 · 让阅读有呼吸感</p>
-      <p><a href="../index.html">主页</a> · <a href="#">关于本篇</a></p>
+      <p>© 氧气文章</p>
     </footer>
   </div>
 
-  <!-- 读取并显示 page.txt 内容的脚本 (人性化：错误处理/优雅降级) -->
+  <!-- 简化版加载脚本：仅保留核心文本加载功能 -->
   <script>
     (function() {
-      // 获取显示内容的容器和加载提示
       const contentDiv = document.getElementById('article-content');
       const loadingIndicator = document.getElementById('loadingIndicator');
 
-      // 人性化：如果内容加载过慢，至少保留提示
-      // 实际读取同目录下的 page.txt
+      // 加载page.txt内容
       fetch('page.txt')
         .then(response => {
-          if (!response.ok) {
-            throw new Error(`无法找到文章 (${response.status})`);
-          }
+          if (!response.ok) throw new Error('内容加载失败');
           return response.text();
         })
         .then(text => {
-          // 移除加载提示
-          if (loadingIndicator) loadingIndicator.style.display = 'none';
+          loadingIndicator.style.display = 'none';
           
-          // 将文本拆分为段落 (以空行或换行分割，保留格式)
-          const paragraphs = text.split(/\n\s*\n/);  // 按空行分段，更自然
-          // 如果分段很少，则按普通换行分段
-          let finalParagraphs = [];
-          if (paragraphs.length <= 1) {
-            // 按行分割，并过滤掉空行
-            finalParagraphs = text.split('\n').filter(line => line.trim() !== '');
-          } else {
-            finalParagraphs = paragraphs;
+          // 文本分段处理
+          const paragraphs = text.split(/\n\s*\n/).length > 1 
+            ? text.split(/\n\s*\n/) 
+            : text.split('\n').filter(line => line.trim() !== '');
+
+          if (paragraphs.length === 0) {
+            contentDiv.innerHTML = '<p class="empty-hint">暂无内容</p>';
+            return;
           }
 
-          // 创建文档片段，逐一生成<p>，保留空行视觉节奏
           const fragment = document.createDocumentFragment();
-          finalParagraphs.forEach(para => {
-            if (para.trim() === '') return; // 跳过纯空行
+          paragraphs.forEach(para => {
+            if (para.trim() === '') return;
             const p = document.createElement('p');
             p.textContent = para.trim();
-            // 加入一点点人性化：首段首字下沉，用类实现（CSS已准备）
             fragment.appendChild(p);
           });
-
-          // 若完全没有内容，显示友好提示
-          if (finalParagraphs.length === 0) {
-            contentDiv.innerHTML = '<p class="empty-hint">✨ 这篇文章还没有文字，或许是一片待耕种的田地。</p>';
-          } else {
-            contentDiv.appendChild(fragment);
-          }
+          contentDiv.appendChild(fragment);
         })
         .catch(error => {
-          // 网络错误或文件不存在：显示人性化报错，并给出示例内容 (不至于白屏)
-          console.warn('读取page.txt失败，使用备用演示内容。', error);
-          if (loadingIndicator) loadingIndicator.style.display = 'none';
-
-          // 提供一段优雅的示例内容（风格与主页匹配）
-          const fallbackHTML = `
-            <p>我想成为那个在月光下走路的人，左脚踩着露水，右脚踏着诗句。夜晚的风从稻田里来，带着稻草人没说完的话。</p>
-            <p>其实你不用急着读完。阅读就像等一朵花开，慢下来才能闻到香气。这里的文字本该从<code>page.txt</code>载入，但或许文件还在来的路上。</p>
-            <p>你不妨想象一下：在一个有薄荷香的午后，你翻开一篇小说，纸页沙沙作响，故事刚刚开始……</p>
-            <p class="fallback-sign">—— 氧分小记 · 临时占位，待你放上真正的故事</p>
-          `;
-          contentDiv.innerHTML = fallbackHTML;
+          console.warn(error);
+          loadingIndicator.style.display = 'none';
+          contentDiv.innerHTML = '<p class="empty-hint">内容加载失败</p>';
         });
-
-      // 简单的“喜欢”按钮交互 (人性化微反馈)
-      document.getElementById('likeButton')?.addEventListener('click', function(e) {
-        const btn = e.currentTarget;
-        const originalText = btn.textContent;
-        btn.textContent = '❤️ 已喜欢';
-        btn.style.background = '#f0cece';
-        btn.style.borderColor = '#dba6a6';
-        // 2秒后恢复（但保留感觉）
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = '';
-          btn.style.borderColor = '';
-        }, 2000);
-      });
-
     })();
   </script>
 </body>
