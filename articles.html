@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔞 · 所有文章</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <style>
+    /* 文章列表专属样式（复用基础风格，新增列表布局） */
+    .articles-list {
+      margin: 3rem 0 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .article-list-item {
+      display: flex;
+      align-items: center;
+      background: #fffffffa;
+      border-radius: 24px;
+      padding: 1.2rem 1.8rem;
+      box-shadow: 0 6px 20px rgba(140, 180, 165, 0.08);
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(220, 240, 230, 0.8);
+      transition: all 0.25s cubic-bezier(0.15, 0.8, 0.25, 1);
+    }
+
+    .article-list-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(62, 110, 96, 0.15);
+      border-color: #c2e0d4;
+      background: white;
+    }
+
+    /* 序号样式 */
+    .item-number {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(130deg, #e1f0ea, #eef7f2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 550;
+      color: #50857a;
+      border: 1px solid #c9e3d8;
+      margin-right: 1.5rem;
+    }
+
+    /* 标题容器 */
+    .item-title {
+      flex-grow: 1;
+    }
+
+    .item-title h3 {
+      font-size: 1.4rem;
+      font-weight: 550;
+      color: #1c453f;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* 适配移动端 */
+    @media (max-width: 700px) {
+      .article-list-item {
+        padding: 1rem 1.2rem;
+      }
+
+      .item-number {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+        margin-right: 1rem;
+      }
+
+      .item-title h3 {
+        font-size: 1.25rem;
+      }
+
+      .read-more {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- 导航区域（与主页保持一致） -->
+    <header class="top-nav">
+      <div class="logo-area">
+        <div class="logo-icon" role="img" aria-label="r18">🔞</div>
+        <span class="logo-text">好的文章</span>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">主页</a>
+        <a href="#" aria-current="page">所有文章</a>
+        <a href="#">发现</a>
+        <a href="#">关于</a>
+      </nav>
+    </header>
+
+    <!-- 列表标题区域 -->
+    <section class="featured-title">
+      <h2>所有文章列表</h2>
+      <span style="color: #60998b; font-weight: 470;">共 <b>2</b> 篇内容</span>
+    </section>
+
+    <!-- 文章列表核心区域 -->
+    <div class="articles-list">
+      <!-- 列表项1 -->
+      <div class="article-list-item">
+        <div class="item-number">1</div>
+        <div class="item-title">
+          <h3>曹平凡最爽的一天</h3>
+        </div>
+        <a href="./1/page.html" class="read-more" aria-label="阅读全文">阅读</a>
+      </div>
+
+      <!-- 列表项2 -->
+      <div class="article-list-item">
+        <div class="item-number">2</div>
+        <div class="item-title">
+          <h3>全站首个猎奇页面</h3>
+        </div>
+        <a href="./2/page.html" class="read-more" aria-label="阅读全文">阅读</a>
+      </div>
+
+    <!-- 页脚（与主页保持一致） -->
+    <footer class="site-footer">
+      <p>© 🔞文章 · 让阅读有刺激感</p>
+      <p>
+        <a href="#">关于</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

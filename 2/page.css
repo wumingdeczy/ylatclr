@@ -1,0 +1,212 @@
+/* 基础重置 & 核心样式保留 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(145deg, #f0f7f4 0%, #e9f2ef 100%);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #1f3b3a;
+  line-height: 1.7;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 主容器：保留核心视觉风格，简化圆角/阴影 */
+.page-wrapper {
+  max-width: 1000px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(2px);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px -12px rgba(45, 70, 66, 0.15);
+  padding: 1.5rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* 简化导航 */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid rgba(183, 210, 197, 0.4);
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  background: #a3cdc3;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 3px 0 #6b9c8f;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #1a4d46 0%, #50857a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #3b5e58;
+  font-size: 1rem;
+  padding: 0.3rem 0.2rem;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+  border-bottom-color: #a3cdc3;
+  color: #1f4a41;
+}
+
+/* 核心阅读卡片 */
+.reading-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 8px 22px rgba(140, 180, 165, 0.1);
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(210, 235, 220, 0.8);
+}
+
+/* 简化文章头部 */
+.article-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px dashed #c6dfd2;
+}
+
+.article-header h1 {
+  font-size: 2.2rem;
+  font-weight: 580;
+  color: #1a4d42;
+  line-height: 1.2;
+}
+
+/* 文章内容区 */
+.article-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #284f47;
+  min-height: 300px;
+}
+
+/* 加载提示 */
+.loading-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #6e9f90;
+  font-size: 1.1rem;
+  padding: 3rem 1rem;
+  justify-content: center;
+  background: #f0faf5;
+  border-radius: 20px;
+  animation: softPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes softPulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+
+/* 段落样式 */
+.article-content p {
+  margin-bottom: 1.8rem;
+  text-align: left;
+  word-break: break-word;
+}
+
+/* 首字下沉保留（核心阅读体验） */
+.article-content p:first-of-type::first-letter {
+  font-size: 3.2rem;
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.5rem;
+  color: #568d7b;
+  font-weight: 500;
+  font-family: 'Times New Roman', serif;
+}
+
+/* 空状态提示 */
+.empty-hint {
+  color: #618f82;
+  background: #ecf6f1;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px dashed #b0d5c3;
+}
+
+/* 简化底部按钮 */
+.article-footer {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #d4eadf;
+  display: flex;
+  justify-content: center;
+}
+
+.pill-button {
+  background: white;
+  border: none;
+  padding: 0.6rem 1.8rem;
+  border-radius: 60px;
+  font-size: 0.95rem;
+  color: #236458;
+  font-weight: 520;
+  box-shadow: 0 4px 10px rgba(102, 151, 132, 0.15);
+  border: 1.5px solid #a7d2c2;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pill-button:hover {
+  background: #ecf9f2;
+  box-shadow: 0 8px 18px -6px #679f8e;
+  transform: scale(1.02);
+}
+
+/* 极简页脚 */
+.page-footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #55887b;
+  padding-top: 1rem;
+}
+
+/* 响应式适配保留（核心体验） */
+@media (max-width: 700px) {
+  .page-wrapper {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+  .reading-card {
+    padding: 1.5rem 1.2rem;
+  }
+  .article-header h1 {
+    font-size: 1.8rem;
+  }
+}
